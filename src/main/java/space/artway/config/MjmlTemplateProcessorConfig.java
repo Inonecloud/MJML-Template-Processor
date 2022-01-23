@@ -28,6 +28,10 @@ public final class MjmlTemplateProcessorConfig {
         return instance;
     }
 
+    public static MjmlTemplateProcessorConfig get(MjmlTemplateProcessorConfig outerInstance) {
+        return instance = outerInstance;
+    }
+
     public void setTemplateDirectory(String templateDirectory) {
         if (templateDirectory == null) {
             throw new IllegalArgumentException("TemplateDirectory shouldn't be null");
@@ -59,6 +63,13 @@ public final class MjmlTemplateProcessorConfig {
 
     public String getMjmlPublicKey() {
         return this.mjmlPublicKey;
+    }
+
+    public void setMjmlSecretKey(String mjmlSecretKey) {
+        if (mjmlSecretKey == null) {
+            throw new IllegalArgumentException("Secret key shouldn't be null");
+        }
+        this.mjmlSecretKey = mjmlSecretKey;
     }
 
     public String getMjmlSecretKey() {
